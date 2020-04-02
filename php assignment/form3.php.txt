@@ -1,0 +1,57 @@
+<html>
+<head>
+
+<title>Associative Array - Cities</title>
+</head>
+ 
+<body>
+<h2>Large Cities Again<br /></h2>
+ 
+<?php
+
+  $cities=array(
+    "Japan" => "Tokyo",
+    "Mexico" => "Mexico City",
+    "USA" => "New York City",
+    "India" => "Mumbai",
+    "Korea" => "Seoul",
+    "China" => "Shanghai",
+    "Nigeria" => "Lagos",
+    "Argentina" => "Buenos Aires",
+    "Egypt" => "Cairo",
+    "UK" => "London"
+  );
+ 
+  if(!isset($_POST['submit'])){
+?>
+ 
+<form method="post" action="yourfile.php">
+<p>Please choose a city:</p>
+<select name="city">
+ 
+<?php
+  
+  foreach($cities as $c){
+    echo "<option value=\"$c\">$c</option>\n";
+  }
+?>
+ 
+</select> <p />
+<input type="submit" name="submit" value="Go">
+</form>
+ 
+<?php
+  //If form submitted, process input.
+  }else{
+    
+    $city=$_POST['city'];
+    
+    $country=array_search($city, $cities);
+   
+    echo "<p>$city is in $country.</p>" ;
+ 
+  }
+?>
+ 
+</body>
+</html>
